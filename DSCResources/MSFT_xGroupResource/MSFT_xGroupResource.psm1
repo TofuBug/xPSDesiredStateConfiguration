@@ -59,7 +59,7 @@
         preventing any operations against the group. The current implementation calls Write-Warning
         with the associated SID of the member that cannot be resolved then continues the operation.
 #>
-
+#Comment to Ensure Initial Commit Builds
 $errorActionPreference = 'Stop'
 Set-StrictMode -Version 'Latest'
 
