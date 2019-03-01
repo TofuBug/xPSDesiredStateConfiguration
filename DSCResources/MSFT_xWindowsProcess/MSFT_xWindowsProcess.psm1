@@ -335,7 +335,7 @@ function Set-TargetResource
                 if (($PSBoundParameters.ContainsKey('Credential')) -and (Test-IsRunFromLocalSystemUser))
                 {
                     # Throw an exception if any of the below parameters are included with Credential passed
-                    foreach ($key in @('StandardOutputPath','StandardInputPath','WorkingDirectory'))
+                    foreach ($key in @('StandardOutputPath', 'StandardInputPath', 'WorkingDirectory'))
                     {
                         if ($PSBoundParameters.Keys -contains $key)
                         {
@@ -447,7 +447,7 @@ function Test-TargetResource
 
         [Parameter()]
         [ValidateNotNullOrEmpty()]
-        [PSCredential]
+        [System.Management.Automation.PSCredential]
         [System.Management.Automation.Credential()]
         $Credential,
 
@@ -679,7 +679,7 @@ function ConvertTo-EscapedStringForWqlFilter
         $FilterString
     )
 
-    return $FilterString.Replace("\","\\").Replace('"','\"').Replace("'","\'")
+    return $FilterString.Replace("\", "\\").Replace('"', '\"').Replace("'", "\'")
 }
 
 <#
@@ -780,11 +780,11 @@ function Get-ArgumentsFromCommandLineInput
 
     if ($CommandLineInput.StartsWith('"'))
     {
-        $endOfCommandChar = [Char]'"'
+        $endOfCommandChar = [System.Char]'"'
     }
     else
     {
-        $endOfCommandChar = [Char]' '
+        $endOfCommandChar = [System.Char]' '
     }
 
     $endofCommandIndex = $CommandLineInput.IndexOf($endOfCommandChar, 1)
@@ -1013,7 +1013,7 @@ function Start-ProcessAsLocalSystemUser
 
     [PSDesiredStateConfiguration.NativeMethods]::CreateProcessAsUser( "$Path $Arguments", $splitCredentialResult.Domain,
                                                                       $splitCredentialResult.UserName, $Credential.Password,
-                                                                      $false, [Ref]$null )
+                                                                      $false, [ref] $null )
 }
 
 <#

@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 8.5.0.0
+
 - Pull server module publishing
   - Removed forced verbose logging from CreateZipFromSource, Publish-DSCModulesAndMof and Publish-MOFToPullServer as it polluted the console
 - Corrected GitHub Pull Request template to remove referral to
@@ -96,6 +98,76 @@
   - Added support for Group Managed Service Accounts
 - Adds new Integration tests for MSFT_xDSCWebService and removes old
   Integration test file, MSFT_xDSCWebService.xxx.ps1.
+- xRegistry
+  - Corrected style guideline violations. ([issue #489](https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/489))
+- Fix script analyzer issues in UseSecurityBestPractices.psm1.
+  [issue #483](https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/483)
+- Fixes script analyzer issues in xEnvironmentResource.
+  [issue #484](https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/484)
+- Fixes script analyzer issues in MSFT_xMsiPackage.psm1.
+  [issue #486](https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/486)
+- Fixes script analyzer issues in MSFT_xPackageResource.psm1.
+  [issue #487](https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/487)
+- Adds spaces between variable types and variables, and changes Type
+  Accelerators to Fully Qualified Type Names on affected code.
+- Fixes script analyzer issues in MSFT_xPSSessionConfiguration.psm1
+  and convert Type Accelerators to Fully Qualified Type Names
+  [issue #488](https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/488).
+- Adds spaces between array members.
+- Fixes script analyzer issues in MSFT_xRemoteFile.psm1 and
+  correct general style violations.
+  ([issue #490](https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/490))
+- Remove unnecessary whitespace from line endings.
+- Add statement to README.md regarding the lack of testing of this module with
+  PowerShell 4
+  [issue #522](https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/522).
+- Fixes script analyzer issues in MSFT_xWindowsOptionalFeature.psm1 and
+  correct general style violations.
+  [issue #494](https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/494))
+- Fixes script analyzer issues in MSFT_xRemoteFile.psm1 missed from
+  [issue #490](https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/490).
+- Fix script analyzer issues in MSFT_xWindowsFeature.psm1.
+  [issue #493](https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/493)
+- Fix script analyzer issues in MSFT_xUserResource.psm1.
+  [issue #492](https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/492)
+- Moves calls to set $global:DSCMachineStatus = 1 into a helper function to
+  reduce the number of locations where we need to suppress PSScriptAnalyzer
+  rules PSAvoidGlobalVars and PSUseDeclaredVarsMoreThanAssignments.
+- Adds spaces between comment hashtags and comments.
+- Fixes script analyzer issues in MSFT_xServiceResource.psm1.
+  [issue #491](https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/491)
+- Fixes script analyzer issues in MSFT_xWindowsPackageCab.psm1.
+  [issue #495](https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/495)
+- xFileUpload:
+  - Fixes script analyzer issues in xFileUpload.schema.psm1.
+    [issue #497](https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/497)
+  - Update to meet style guidelines.
+  - Added Integration tests.
+  - Updated manifest Author, Company and Copyright to match
+    standards.
+- Updated module manifest Copyright to match standards and remove
+  year.
+- Auto-formatted the module manifest to improve layout.
+- Fix Run-On Words in README.md.
+- Changes to xPackage
+  - Fix an misnamed variable that causes an error during error message output.
+    [issue #449](https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/449))
+- Fixes script analyzer issues in MSFT_xPSSessionConfiguration.psm1.
+  [issue #566](https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/566)
+- Fixes script analyzer issues in xGroupSet.schema.psm1.
+  [issue #498](https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/498)
+- Fixes script analyzer issues in xProcessSet.schema.psm1.
+  [issue #499](https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/499)
+- Fixes script analyzer issues in xServiceSet.schema.psm1.
+  [issue #500](https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/500)
+- Fixes script analyzer issues in xWindowsFeatureSet.schema.psm1.
+  [issue #501](https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/501)
+- Fixes script analyzer issues in xWindowsOptionalFeatureSet.schema.psm1
+  [issue #502](https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/502)
+- Updates Should statements in Pester tests to use dashes before parameters.
+- Added a CODE\_OF\_CONDUCT.md with the same content as in the README.md
+  [issue #562](https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/562)
+- Replaces Type Accelerators with fully qualified type names.
 
 ## 8.4.0.0
 
@@ -367,7 +439,7 @@
 - xDSCWebService
   - Fixed issue where resource would fail to read redirection.config file.
     This resolves issue
-    [#191] (https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/191)
+    [#191](https://github.com/PowerShell/xPSDesiredStateConfiguration/issues/191)
 - xArchive
   - Fixed issue where resource would throw exception when file name contains
     brackets. This resolves issue

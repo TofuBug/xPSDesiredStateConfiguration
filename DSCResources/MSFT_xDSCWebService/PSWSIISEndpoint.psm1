@@ -551,7 +551,7 @@ function New-PSWSEndpoint
 
         # Port # for the IIS Endpoint
         [Parameter()]
-        [Int]
+        [System.Int32]
         $port = 8080,
 
         # IIS Application Name for the Site
@@ -591,7 +591,7 @@ function New-PSWSEndpoint
         # Any dependent binaries that need to be deployed to the IIS endpoint, in the bin folder
         [Parameter()]
         [ValidateNotNullOrEmpty()]
-        [String[]]
+        [System.String[]]
         $dependentBinaries,
 
          # MUI Language [Optional]
@@ -603,13 +603,13 @@ function New-PSWSEndpoint
         # Any dependent binaries that need to be deployed to the IIS endpoint, in the bin\mui folder [Optional]
         [Parameter()]
         [ValidateNotNullOrEmpty()]
-        [String[]]
+        [System.String[]]
         $dependentMUIFiles,
 
         # Any dependent PowerShell Scipts/Modules that need to be deployed to the IIS endpoint application root
         [Parameter()]
         [ValidateNotNullOrEmpty()]
-        [String[]]
+        [System.String[]]
         $psFiles,
 
         # True to remove all files for the site at first, false otherwise
@@ -702,7 +702,7 @@ function Remove-PSWSEndpoint
     $filePath = $site.PhysicalPath
     # Get the port number for the Firewall rule
     $bindings = (Get-WebBinding -Name $siteName).bindingInformation
-    $port = [regex]::match($bindings,':(\d+):').Groups[1].Value
+    $port = [System.Text.RegularExpressions.Regex]::Match($bindings,':(\d+):').Groups[1].Value
 
     # Remove the actual site.
     Remove-Website -Name $siteName
@@ -771,7 +771,7 @@ function Set-AppSettingsInWebconfig
 
     if (Test-Path -Path $webconfig)
     {
-        $xml = [xml] (get-content $webconfig)
+        $xml = [System.Xml.XmlDocument] (Get-Content -Path $webconfig)
         $root = $xml.get_DocumentElement()
 
         foreach( $item in $root.appSettings.add)
@@ -843,7 +843,7 @@ function Set-BindingRedirectSettingInWebConfig
 
     if (Test-Path -Path $webconfig)
     {
-        $xml = [xml](get-content $webconfig)
+        $xml = [System.Xml.XmlDocument] (Get-Content -Path $webconfig)
 
         if(-not($xml.get_DocumentElement().runtime))
         {

@@ -92,13 +92,13 @@ try
                     }
                 }
 "@
-                .([scriptblock]::Create($configurationScriptText))
+                .([System.Management.Automation.ScriptBlock]::Create($configurationScriptText))
 
                 & $configurationName -OutputPath $configurationPath
 
                 Start-DscConfiguration -Path $configurationPath -Wait -Force -Verbose
 
-                Test-PackageInstalledByName -Name $script:packageName | Should Be $true
+                Test-PackageInstalledByName -Name $script:packageName | Should -Be $true
             }
             finally
             {
