@@ -63,7 +63,7 @@ for:
 -
   # Job 1.
   environment:
-    APPVEYOR_RDP_PASSWORD: password
+    APPVEYOR_RDP_PASSWORD: Q>H}zFh2&9Kgb"\z
 
   init:
     - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
